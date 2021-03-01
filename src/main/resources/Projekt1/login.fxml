@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="664.0" maxWidth="1042.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="1042.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LoginController">
+<BorderPane maxHeight="664.0" maxWidth="1042.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="1042.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projekt1.LoginController">
    <left>
       <AnchorPane prefHeight="664.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
@@ -21,7 +21,7 @@
    <right>
       <AnchorPane prefHeight="664.0" prefWidth="335.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="loginButton" layoutX="35.0" layoutY="521.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="252.0" style="-fx-background-color: #4D4D4D; -fx-background-radius: 0;" text="Log in" textFill="WHITE">
+            <Button fx:id="LoginButton" layoutX="35.0" layoutY="521.0" mnemonicParsing="false" onAction="#checkLog" prefHeight="28.0" prefWidth="252.0" style="-fx-background-color: #4D4D4D; -fx-background-radius: 0;" text="Log in" textFill="WHITE">
                <font>
                   <Font name="MontserratBold.tff" size="13.0" />
                </font></Button>
@@ -31,12 +31,12 @@
                </rotationAxis></TextField>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="35.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Icons/2.png" />
+                  <Image url="@LoginFiles/2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="36.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Icons/1.png" />
+                  <Image url="@LoginFiles/1.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="password" layoutX="75.0" layoutY="457.0" prefHeight="32.0" prefWidth="205.0" promptText="Password" style="-fx-background-radius: 0;" />
@@ -45,7 +45,13 @@
                   <Font name="MontserratBold.tff" size="13.0" />
                </font>
             </Button>
-            <Label fx:id="wrongLogin" layoutX="147.0" layoutY="497.0" />
+            <Label fx:id="WrongLogin" layoutX="35.0" layoutY="497.0" prefHeight="17.0" prefWidth="249.0" />
+            <Hyperlink fx:id="RegisterButton" layoutX="36.0" layoutY="603.0" prefHeight="23.0" prefWidth="237.0" text="Don't have an account? Register!" textFill="#ff7033">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="ForgetPassword" layoutX="35.0" layoutY="377.0" textFill="#ff7033" />
          </children></AnchorPane>
    </right>
 </BorderPane>

@@ -1,7 +1,14 @@
+
 module org.example {
+    requires java.sql;
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
-    opens org.example to javafx.fxml;
-    exports org.example;
+    requires java.persistence;
+    requires org.hibernate.orm.core;
+    requires java.naming;
+    requires org.hibernate.commons.annotations;
+    requires org.postgresql.jdbc;
+    opens Projekt1 to javafx.fxml;
+    exports Projekt1;
 }
