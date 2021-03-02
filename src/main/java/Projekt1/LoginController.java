@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
@@ -44,9 +45,10 @@ public class LoginController {
 
 
     }
+
     @FXML
-    private void checkLogin() throws IOException, InterruptedException {
-        if(!username.getText().isBlank() && !password.getText().isBlank()){
+    private void checkLogin() throws IOException, InterruptedException, SQLException {
+        if (!username.getText().isBlank() && !password.getText().isBlank()) {
             validateLogin();
         }
         if (username.getText().isEmpty() && password.getText().isEmpty()) {
@@ -54,22 +56,33 @@ public class LoginController {
         }
     }
 
-    public void validateLogin() {
+    public void validateLogin() throws IOException, SQLException {
         App m = new App();
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDb = connectNow.getConnection();
 
-        String verifyLogin = "SELECT count(1) FROM log_data WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "'";
+
+        redirectAfterValidateLogin((new TypesOfAccount(1,"patient")),m,connectDb);
+        redirectAfterValidateLogin((new TypesOfAccount(2,"doctor")),m,connectDb);
+        redirectAfterValidateLogin((new TypesOfAccount(3,"apothecary")),m,connectDb);
+        redirectAfterValidateLogin((new TypesOfAccount(4,"admin")),m,connectDb);
+
+
+
+    }
+
+    public void redirectAfterValidateLogin(TypesOfAccount typ, App m, Connection connectDb) throws IOException, SQLException {
+        String verifyLogin = "SELECT count(*) FROM log_data WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "' "+ "AND accounttype ='" + typ.getNumber() + "'";
 
         try {
             Statement statement = connectDb.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
-
             while (queryResult.next()) {
-                if (queryResult.getInt(1) == 1) {
+                if (queryResult.getInt(1) == 1){
                     WrongLogin.setText("Succes!");
-                    m.changeScene("patient.fxml", 1042, 664);
-                } else {
+                    m.changeScene(typ.getFxml() + ".fxml", 1366, 768);
+
+                } else{
                     WrongLogin.setText("Invalid login. Please try again.");
                 }
             }
@@ -78,7 +91,6 @@ public class LoginController {
             e.printStackTrace();
             e.getCause();
         }
-
     }
 }
 
