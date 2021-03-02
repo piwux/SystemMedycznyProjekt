@@ -29,7 +29,7 @@ public class App extends Application {
     }
  public void changeScene(String fxml,int w, int v1) throws IOException{
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.setScene(new Scene(pane,1200,600));
+        stg.setScene(new Scene(pane,w,v1));
 
  }
 

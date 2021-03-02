@@ -4,7 +4,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://testdatabase1.cbu2kotcg0eq.eu-west-1.rds.amazonaws.com:5432/postgres</property>
+        <property name="connection.url">jdbc:postgresql://database-1.cbu2kotcg0eq.eu-west-1.rds.amazonaws.com:5432/postgres</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">postgrespostgres123$</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>

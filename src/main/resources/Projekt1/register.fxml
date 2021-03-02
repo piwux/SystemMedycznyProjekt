@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="664.0" maxWidth="1042.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="1042.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projekt1.RegisterController">
+    <left>
+        <AnchorPane prefHeight="664.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="764.0" fitWidth="659.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@LoginFiles/Login1.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="664.0" prefWidth="335.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="usernameR" layoutX="75.0" layoutY="361.0" prefHeight="33.0" prefWidth="205.0" promptText="Username" style="-fx-background-radius: 0;">
+                    <rotationAxis>
+                        <Point3D />
+                    </rotationAxis></TextField>
+                <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="26.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@LoginFiles/2.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="26.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@LoginFiles/1.png" />
+                    </image>
+                </ImageView>
+                <PasswordField fx:id="passwordR" layoutX="75.0" layoutY="409.0" prefHeight="32.0" prefWidth="205.0" promptText="Password" style="-fx-background-radius: 0;" />
+                <Label fx:id="WrongRegisterR" layoutX="35.0" layoutY="497.0" prefHeight="17.0" prefWidth="249.0" />
+            <TextField fx:id="mailR" layoutX="75.0" layoutY="316.0" prefHeight="33.0" prefWidth="205.0" promptText="Mail" style="-fx-background-radius: 0;" />
+            <PasswordField fx:id="passwordRR" layoutX="75.0" layoutY="454.0" prefHeight="32.0" prefWidth="205.0" promptText="Repeat Password" style="-fx-background-radius: 0;" />
+            <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="22.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@RegisterFiles/EmailIcon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="RegisterText" layoutX="26.0" layoutY="244.0" prefHeight="65.0" prefWidth="249.0" text="Register Form" textFill="#4d4d4d">
+                <font>
+                    <Font name="Montserrat-Bold.tff" size="32.0" />
+                </font>
+            </Label>
+            <Button fx:id="RegisterR" layoutX="35.0" layoutY="521.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="252.0" style="-fx-background-radius: 0; -fx-background-color: #4D4D4D;" text="Register" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="CancelRB" layoutX="35.0" layoutY="562.0" mnemonicParsing="false" onAction="#registerButtonCancel" prefHeight="25.0" prefWidth="252.0" style="-fx-background-radius: 0; -fx-background-color: #4D4D4D;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+    </right>
+</BorderPane>
