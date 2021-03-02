@@ -51,9 +51,10 @@ public class LoginController {
         if (!username.getText().isBlank() && !password.getText().isBlank()) {
             validateLogin();
         }
-        if (username.getText().isEmpty() && password.getText().isEmpty()) {
+        else {
             WrongLogin.setText("Please enter your username and password");
         }
+
     }
 
     public void validateLogin() throws IOException, SQLException {
@@ -66,6 +67,9 @@ public class LoginController {
         redirectAfterValidateLogin((new TypesOfAccount(2,"doctor")),m,connectDb);
         redirectAfterValidateLogin((new TypesOfAccount(3,"apothecary")),m,connectDb);
         redirectAfterValidateLogin((new TypesOfAccount(4,"admin")),m,connectDb);
+
+
+        connectDb.close();
 
 
 
