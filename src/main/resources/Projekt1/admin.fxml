@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane cacheShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projekt1.ControllersForTypeOfAcc.AdminController.aController">
+   <left>
+      <AnchorPane prefHeight="768.0" prefWidth="306.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="768.0" fitWidth="305.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/Projekt1/Files/AdminFiles/4.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="addButton" layoutX="25.0" layoutY="158.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="refreshButton" layoutX="25.0" layoutY="197.0" mnemonicParsing="false" text="Refresh" />
+            <Button fx:id="removeButton" layoutX="25.0" layoutY="234.0" mnemonicParsing="false" text="Remove" />
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tablew" layoutY="144.0" prefHeight="558.0" prefWidth="1034.0">
+              <columns>
+                <TableColumn fx:id="id_col" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="at_col" prefWidth="75.0" text="account_type" />
+                  <TableColumn fx:id="code_col" prefWidth="75.0" text="code" />
+                  <TableColumn fx:id="p_col" prefWidth="75.0" text="password" />
+                  <TableColumn fx:id="un_col" prefWidth="75.0" text="username" />
+                  <TableColumn fx:id="n_col" prefWidth="75.0" text="name" />
+                  <TableColumn fx:id="s_col" prefWidth="75.0" text="surname" />
+                  <TableColumn fx:id="psl_col" prefWidth="75.0" text="pesel" />
+                  <TableColumn fx:id="em_col" prefWidth="75.0" text="email" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

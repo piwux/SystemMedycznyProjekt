@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="764.0" fitWidth="659.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@LoginFiles/Login1.png" />
+                  <Image url="@Files/LoginFiles/Login1.png" />
                </image>
             </ImageView>
          </children>
@@ -31,12 +31,12 @@
                </rotationAxis></TextField>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="35.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@LoginFiles/2.png" />
+                  <Image url="@Files/LoginFiles/2.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="36.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@LoginFiles/1.png" />
+                  <Image url="@Files/LoginFiles/1.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="password" layoutX="75.0" layoutY="457.0" prefHeight="32.0" prefWidth="205.0" promptText="Password" style="-fx-background-radius: 0;" />

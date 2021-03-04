@@ -64,9 +64,10 @@ public class LoginController {
 
 
         redirectAfterValidateLogin((new TypesOfAccount(1,"patient")),m,connectDb);
-        redirectAfterValidateLogin((new TypesOfAccount(2,"doctor")),m,connectDb);
-        redirectAfterValidateLogin((new TypesOfAccount(3,"apothecary")),m,connectDb);
-        redirectAfterValidateLogin((new TypesOfAccount(4,"admin")),m,connectDb);
+        redirectAfterValidateLoginV2((new TypesOfAccount(2,"doctor")),m,connectDb);
+        redirectAfterValidateLoginV2((new TypesOfAccount(3,"apothecary")),m,connectDb);
+        redirectAfterValidateLoginV2((new TypesOfAccount(4,"admin")),m,connectDb);
+        redirectAfterValidateLoginV2((new TypesOfAccount(5,"receptionist")),m,connectDb);
 
 
         connectDb.close();
@@ -76,7 +77,7 @@ public class LoginController {
     }
 
     public void redirectAfterValidateLogin(TypesOfAccount typ, App m, Connection connectDb) throws IOException, SQLException {
-        String verifyLogin = "SELECT count(*) FROM log_data WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "' "+ "AND accounttype ='" + typ.getNumber() + "'";
+        String verifyLogin = "SELECT count(*) FROM log_datapatient WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "' "+ "AND account_type ='" + typ.getNumber() + "'";
 
         try {
             Statement statement = connectDb.createStatement();
@@ -85,6 +86,7 @@ public class LoginController {
                 if (queryResult.getInt(1) == 1){
                     WrongLogin.setText("Succes!");
                     m.changeScene(typ.getFxml() + ".fxml", 1366, 768);
+                    //making session file
 
                 } else{
                     WrongLogin.setText("Invalid login. Please try again.");
@@ -96,5 +98,33 @@ public class LoginController {
             e.getCause();
         }
     }
+
+
+    public void redirectAfterValidateLoginV2(TypesOfAccount typ, App m, Connection connectDb) throws IOException, SQLException {
+        String verifyLogin = "SELECT count(*) FROM log_datapersonel WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "' "+ "AND account_type ='" + typ.getNumber() + "'";
+
+        try {
+            Statement statement = connectDb.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+            while (queryResult.next()) {
+                if (queryResult.getInt(1) == 1){
+                    WrongLogin.setText("Succes!");
+                    m.changeScene(typ.getFxml() + ".fxml", 1366, 768);
+                    //making session file
+
+                } else{
+                    WrongLogin.setText("Invalid login. Please try again.");
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+ public void makeSessionFile(Connection connection){
+
+ }
 }
 
