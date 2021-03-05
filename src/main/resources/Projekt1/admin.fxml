@@ -3,37 +3,75 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projekt1.ControllersForTypeOfAcc.AdminController.aController">
    <left>
       <AnchorPane prefHeight="768.0" prefWidth="306.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="768.0" fitWidth="305.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="768.0" fitWidth="317.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/Projekt1/Files/AdminFiles/4.png" />
                </image>
             </ImageView>
-            <Button fx:id="addButton" layoutX="25.0" layoutY="158.0" mnemonicParsing="false" text="Add" />
-            <Button fx:id="refreshButton" layoutX="25.0" layoutY="197.0" mnemonicParsing="false" text="Refresh" />
-            <Button fx:id="removeButton" layoutX="25.0" layoutY="234.0" mnemonicParsing="false" text="Remove" />
+            <Button fx:id="addButton" layoutX="29.0" layoutY="150.0" mnemonicParsing="false" onAction="#addUserButton" text="Add" />
+            <Button fx:id="DeleteButton1" layoutX="29.0" layoutY="184.0" mnemonicParsing="false" onAction="#addUserButton" text="Delete" />
+            <Button fx:id="LogOutButton1" layoutX="29.0" layoutY="722.0" mnemonicParsing="false" onAction="#addUserButton" prefHeight="25.0" prefWidth="132.0" text="Log out" />
          </children></AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="768.0" prefWidth="1017.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tablew" layoutY="144.0" prefHeight="558.0" prefWidth="1034.0">
-              <columns>
-                <TableColumn fx:id="id_col" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="at_col" prefWidth="75.0" text="account_type" />
-                  <TableColumn fx:id="code_col" prefWidth="75.0" text="code" />
-                  <TableColumn fx:id="p_col" prefWidth="75.0" text="password" />
-                  <TableColumn fx:id="un_col" prefWidth="75.0" text="username" />
-                  <TableColumn fx:id="n_col" prefWidth="75.0" text="name" />
-                  <TableColumn fx:id="s_col" prefWidth="75.0" text="surname" />
-                  <TableColumn fx:id="psl_col" prefWidth="75.0" text="pesel" />
-                  <TableColumn fx:id="em_col" prefWidth="75.0" text="email" />
-              </columns>
-            </TableView>
+            <AnchorPane fx:id="tableA" disable="true" layoutX="221.0" prefHeight="768.0" prefWidth="1366.0">
+               <children>
+                  <ImageView fx:id="bimage" disable="true" fitHeight="768.0" fitWidth="1056.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/Projekt1/Files/AdminFiles/AdminForm.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="Aname" layoutX="33.0" layoutY="268.0" prefHeight="33.0" prefWidth="206.0" promptText="Name" style="-fx-background-radius: 0;" />
+                  <TextField fx:id="Asurname" layoutX="33.0" layoutY="318.0" prefHeight="33.0" prefWidth="206.0" promptText="Surname" style="-fx-background-radius: 0;" />
+                  <TextField fx:id="Apesel" layoutX="33.0" layoutY="364.0" prefHeight="33.0" prefWidth="206.0" promptText="Pesel" style="-fx-background-radius: 0;" />
+                  <TextField fx:id="Adate" layoutX="33.0" layoutY="411.0" prefHeight="33.0" prefWidth="206.0" promptText="Date of birth" style="-fx-background-radius: 0;" />
+                  <TextField fx:id="Atelephone" layoutX="33.0" layoutY="458.0" prefHeight="33.0" prefWidth="206.0" promptText="Telephone" style="-fx-background-radius: 0;" />
+                  <TextField fx:id="Aemail" layoutX="33.0" layoutY="507.0" prefHeight="33.0" prefWidth="206.0" promptText="E-mail" style="-fx-background-radius: 0;" />
+                  <Label fx:id="codeLabel" layoutX="170.0" layoutY="630.0" prefHeight="43.0" prefWidth="325.0" textAlignment="CENTER" textFill="#4d4d4d">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Button fx:id="submitButton" layoutX="876.0" layoutY="721.0" mnemonicParsing="false" onAction="#addUserOnAction" prefHeight="31.0" prefWidth="154.0" text="Submit" />
+                  <RadioButton layoutX="1008.0" layoutY="185.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="277.0" visible="false" />
+                  <Label fx:id="submitLabel" layoutX="31.0" layoutY="229.0" prefHeight="21.0" prefWidth="194.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ToggleButton fx:id="ButtonD" layoutX="33.0" layoutY="596.0" mnemonicParsing="false" onAction="#buttonDAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0;" text="Doctor" textFill="WHITE" />
+                  <ToggleButton fx:id="ButtonCh" layoutX="99.0" layoutY="596.0" mnemonicParsing="false" onAction="#buttonChAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0;" text="Chemist" textFill="WHITE" />
+                  <ToggleButton fx:id="ButtonR" layoutX="165.0" layoutY="596.0" mnemonicParsing="false" onAction="#buttonRAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0;" text="Receptionist" textFill="WHITE" />
+                  <ToggleButton fx:id="ButtonA" layoutX="256.0" layoutY="596.0" mnemonicParsing="false" onAction="#buttonAAction" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #4d4d4d; -fx-background-radius: 0;" text="Admin" textFill="WHITE" />
+                  <Button fx:id="generateCode" layoutX="711.0" layoutY="721.0" mnemonicParsing="false" onAction="#generatingCodeAndDisplayCode" prefHeight="31.0" prefWidth="154.0" text="Generate Code" />
+                  <Button fx:id="cancelButton1" layoutX="546.0" layoutY="721.0" mnemonicParsing="false" onAction="#generatingCodeAndDisplayCode" prefHeight="31.0" prefWidth="154.0" text="Cancel" />
+               </children></AnchorPane>
+            <AnchorPane fx:id="tableW" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <TableView fx:id="tablew" layoutX="222.0" layoutY="172.0" prefHeight="594.0" prefWidth="1020.0">
+                    <columns>
+                      <TableColumn fx:id="id_col" prefWidth="75.0" text="id" />
+                      <TableColumn fx:id="at_col" prefWidth="75.0" text="account_type" />
+                        <TableColumn fx:id="code_col" prefWidth="75.0" text="code" />
+                        <TableColumn fx:id="p_col" prefWidth="75.0" text="password" />
+                        <TableColumn fx:id="un_col" prefWidth="75.0" text="username" />
+                        <TableColumn fx:id="n_col" prefWidth="75.0" text="name" />
+                        <TableColumn fx:id="s_col" prefWidth="75.0" text="surname" />
+                        <TableColumn fx:id="psl_col" prefWidth="75.0" text="pesel" />
+                        <TableColumn fx:id="em_col" prefWidth="75.0" text="email" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="removeButton" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="refreshButton" mnemonicParsing="false" text="Refresh" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </center>

@@ -41,9 +41,10 @@ public class RegisterController {
         App m = new App();
         DataBaseConnection connectNow = new DataBaseConnection();
         Connection connectDb = connectNow.getConnection();
-        if (validateIfFill() && validatePasswordCorrect() && validateLoginUnique(connectDb) && validateIfCodeExsist(connectDb)) {
+        if (validateIfFill() && validatePasswordCorrect()  && validateIfCodeExsist(connectDb)) { //&& validateLoginUnique(connectDb)
             WrongRegisterR.setText("Register succesful");
-            String register = "INSERT INTO log_data WHERE code = '" + CodeR.getText()  + "' (username, password, account_type) VALUES ('" + UsernameR.getText() + "', '" + PasswordR.getText() + "', '" + 1 + "');";
+            String register = "UPDATE log_datapersonel  SET username = '"+ UsernameR.getText()  + "', password = '"+PasswordR.getText() + "" +
+                    "' WHERE code = '"  + CodeR.getText()  + "';";
             Statement statement = connectDb.createStatement();
             statement.executeUpdate(register);
             m.changeScene("login.fxml", 1042, 664);
@@ -98,31 +99,35 @@ public class RegisterController {
     }
 
 
+    //TOREPAIR
+    @Deprecated
     private boolean validateLoginUnique(Connection connection) {
-        String validateLogin = "SELECT count(*) FROM log_data WHERE username = '" + UsernameR.getText() + "'";
+        String validateLogin = "SELECT count(*) FROM log_datapersonel WHERE username = '" + UsernameR.getText() + "';";
 
         try {
             Statement statement = connection.createStatement();
             ResultSet rS = statement.executeQuery(validateLogin);
-            rS.next();
-            if (rS.getInt(0) == 0) {
+            if (rS.next()) {
                 WrongRegisterR.setText("Login is not unique");
                 return false;
             }
             return true;
         } catch (SQLException throwables) {
+            System.out.println("wyjatek");
+            throwables.printStackTrace();
             WrongRegisterR.setText("Login is not unique");
             return false;
         }
     }
 
     private boolean validateIfCodeExsist(Connection connection) throws SQLException {
-        String validateCode = "SELECT count(*) FROM log_data WHERE code = '" + CodeR.getText() + "'";
-        Statement statement = null;
+        String validateCode = "SELECT * FROM log_datapersonel WHERE code = '" + CodeR.getText() + "';";
+
         try {
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             ResultSet W = statement.executeQuery(validateCode);
-            if (W.getInt(0) == 0) {
+            W.next();
+            if (W.getString("code").equals(CodeR.getText())) {
                 return true;
             }
         } catch (SQLException throwables) {

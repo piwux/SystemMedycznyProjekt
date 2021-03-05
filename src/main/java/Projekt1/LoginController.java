@@ -70,7 +70,7 @@ public class LoginController {
         redirectAfterValidateLoginV2((new TypesOfAccount(5,"receptionist")),m,connectDb);
 
 
-        connectDb.close();
+
 
 
 
@@ -82,15 +82,18 @@ public class LoginController {
         try {
             Statement statement = connectDb.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
+            queryResult.next();
             while (queryResult.next()) {
                 if (queryResult.getInt(1) == 1){
                     WrongLogin.setText("Succes!");
                     m.changeScene(typ.getFxml() + ".fxml", 1366, 768);
                     //making session file
 
+
                 } else{
                     WrongLogin.setText("Invalid login. Please try again.");
                 }
+
             }
 
         } catch (Exception e) {
@@ -100,13 +103,15 @@ public class LoginController {
     }
 
 
-    public void redirectAfterValidateLoginV2(TypesOfAccount typ, App m, Connection connectDb) throws IOException, SQLException {
-        String verifyLogin = "SELECT count(*) FROM log_datapersonel WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "' "+ "AND account_type ='" + typ.getNumber() + "'";
+    public void redirectAfterValidateLoginV2(TypesOfAccount typ, App m, Connection connectDb) {
+        String verifyLogin = "SELECT count(*) FROM log_datapersonel WHERE username = '" + username.getText() + "' AND password ='" + password.getText() + "' "+ "AND account_type ='" + typ.getNumber() + "';";
 
         try {
             Statement statement = connectDb.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
+
             while (queryResult.next()) {
+                System.out.println();queryResult.getInt(1);
                 if (queryResult.getInt(1) == 1){
                     WrongLogin.setText("Succes!");
                     m.changeScene(typ.getFxml() + ".fxml", 1366, 768);
@@ -118,9 +123,11 @@ public class LoginController {
             }
 
         } catch (Exception e) {
+            System.out.println("Wyjatek");
             e.printStackTrace();
             e.getCause();
         }
+
     }
 
  public void makeSessionFile(Connection connection){

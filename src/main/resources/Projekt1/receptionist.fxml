@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1366" prefWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projekt1.ControllersForTypeOfAcc.ReceptionistController.ReceptionistController">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="772.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Files/ReceptionistFiles/ReceptionistPanel.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="26.0" layoutY="148.0" mnemonicParsing="false" text="Add" />
+            <Button layoutX="26.0" layoutY="186.0" mnemonicParsing="false" text="Remove" />
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="tableA" prefHeight="768.0" prefWidth="1061.0">
+               <children>
+                  <ImageView fitHeight="768.0" fitWidth="1062.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Files/ReceptionistFiles/ReceptionistForm.png" />
+                     </image></ImageView>
+               </children></AnchorPane>
+            <AnchorPane fx:id="tableW" prefHeight="768.0" prefWidth="1059.0">
+               <children>
+                  <TableView fx:id="tablew" disable="true" layoutX="2.0" layoutY="284.0" prefHeight="481.0" prefWidth="1056.0" visible="false">
+                    <columns>
+                      <TableColumn fx:id="id_col" prefWidth="75.0" text="id" />
+                      <TableColumn fx:id="at_col" prefWidth="75.0" text="acc type" />
+                        <TableColumn fx:id="code_col" prefWidth="75.0" text="code" />
+                        <TableColumn fx:id="p_col" prefWidth="75.0" text="p" />
+                        <TableColumn fx:id="un_col" prefWidth="75.0" text="Column X" />
+                        <TableColumn fx:id="n_col" prefWidth="75.0" text="Column X" />
+                        <TableColumn fx:id="s_col" prefWidth="75.0" text="Column X" />
+                        <TableColumn fx:id="psl_col" prefWidth="75.0" text="Column X" />
+                        <TableColumn fx:id="em_col" prefWidth="75.0" text="Column X" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

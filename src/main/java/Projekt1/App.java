@@ -16,13 +16,18 @@ public class App extends Application {
     private static Stage stg;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage){
         stg = stage;
         stage.setResizable(false);
         stage.setTitle("Kytos Login");
         stage.initStyle(StageStyle.UNDECORATED);
 
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         stage.setScene(new Scene(root, 1042, 664));
         stage.show();
 

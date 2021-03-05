@@ -1,11 +1,11 @@
-package Projekt1.ControllersForTypeOfAcc.AdminController;
+package Projekt1.ControllersForTypeOfAcc.ReceptionistController;
 
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class users {
+public class usersp {
     private LongProperty id = new SimpleLongProperty();
     private LongProperty accounttype = new SimpleLongProperty();
     private LongProperty pesel = new SimpleLongProperty();
@@ -17,7 +17,7 @@ public class users {
     private StringProperty email = new SimpleStringProperty();
 
 
-    public users(long id, long accounttype, long pesel, String code, String password, String username, String name, String surname, String email) {
+    public usersp(long id, long accounttype, long pesel, String code, String password, String username, String name, String surname, String email) {
 
         this.accounttype.setValue(accounttype);
         this.pesel.setValue(pesel);
